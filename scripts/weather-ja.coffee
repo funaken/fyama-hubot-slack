@@ -40,9 +40,5 @@ module.exports = (robot) ->
           return
         result = JSON.parse(body)
         forecastTime = new Date(result.publicTime)
-        msg.send "【お天気情報 #{place}】\n" +
-        "■  #{dateFormat(forecastTime, "yyyy年mm月dd日HH時MM分")}の予報です\n" +
-        "予報 : #{result.forecasts[0].telop}\n" +
-        "#{result.description.text}\n" +
-        "詳しい情報は下記を参照\n\n" +
+        msg.send "■  #{dateFormat(forecastTime, "yyyy年mm月dd日HH時MM分")}の予報：#{result.forecasts[0].telop}\n" +
         "#{result.link}"
